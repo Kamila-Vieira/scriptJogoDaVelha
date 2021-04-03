@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles/reset.css">
+  <link rel="stylesheet" href="./styles/styles.css">
+  <title>Jogo da velha</title>
+</head>
+<body>
+  <main class='container'>
+    <section class='container-left'>
+      <div class='user-field-box'>
+        <div class='user-field-wrapper'>
+          <input placeholder="Jogador 1" class='user-field user-field-1'/>
+        </div>
+        <div class='user-field-wrapper'>
+          <input placeholder="Jogador 2" value='Bot' disabled class='user-field user-field-2'/>
+          <button class='switcher switcher-bot switcher-on'>
+            <div class='switcher-ball'></div>
+          </button>
+        </div>
+      </div>
+      <h4 class='match-type-title'>Tipo de Partida</h4>
+      <div class='match-type-box'>
+        <span class='match-type-text'>Melhor de 3</span>
+        <button class='switcher switcher-md'>
+          <div class='switcher-ball'></div>
+        </button>
+        <span class='match-type-text'>Melhor de 5</span>
+      </div>
+      <button class='button-play'>Jogar</button>
+      <h4 class='match-historic-title'>Histórico de partidas</h4>
+      <ul class='match-historic-list'></ul>
+      <button class='reset-button'>Reiniciar</button>
+    </section>
+
+    <section class='container-center'>
+      <div class='scoreboard'>
+        <span class='score-player'>X</span>
+        <span class='score-player score-player-1'>00</span>
+        <div class='scoreboard-title-box'>
+          <h2 class='scoreboard-title'>Placar</h2>
+          <span class="scoreboard-name">Nome jogador</span>
+        </div>
+        <span class='score-player score-player-2'>00</span>
+        <span class='score-player'>O</span>
+      </div>
+      <button class='bot-vs-bot'>Bot vs Bot</button>
+      <div class='battlefield'>
+        <span class="field field-0"></span>
+        <span class="field field-1"></span>
+        <span class="field field-2"></span>
+        <span class="field field-3"></span>
+        <span class="field field-4"></span>
+        <span class="field field-5"></span>
+        <span class="field field-6"></span>
+        <span class="field field-7"></span>
+        <span class="field field-8"></span>
+      </div>
+    </section>
+
+    <section class='container-right'>
+      <h3 class='play-historic-title'>Histórico de Jogadas</h3>
+      <ul class='play-historic-list'></ul>
+    </section>
+  </main>
+ 
+  <script type="module" src='./scripts/index.js'></script>
+</body>
+</html>
