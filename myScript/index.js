@@ -37,9 +37,7 @@ const kamilaScript = (scenery, myMove) => {
       player.repeat(2)
     ) {
       line.forEach((num) => {
-        if (!scenery[num]) {
-          moveIndex = num;
-        }
+        if (!scenery[num]) moveIndex = num;
       });
     }
   };
@@ -50,10 +48,8 @@ const kamilaScript = (scenery, myMove) => {
 
   move();
 
-  winnerLines.forEach((line) => {
-    verifyWinner(line, myMove);
-    verifyWinner(line, myOpponentMove);
-  });
+  winnerLines.forEach((line) => verifyWinner(line, myOpponentMove));
+  winnerLines.forEach((line) => verifyWinner(line, myMove));
 
   return moveIndex;
 };
