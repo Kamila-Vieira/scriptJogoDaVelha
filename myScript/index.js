@@ -25,31 +25,32 @@ const kamilaScript = (scenery, myMove) => {
     return vertical.concat(horizontal, diagonal);
   };
 
+  const winnerLines = getWinnerLines(scenery);
+  let moveIndex = null;
+  const myOpponentMove = myMove == "X" ? "O" : "X";
+
   const move = () => {
     const randomNumber = Math.floor(Math.random() * 9);
     if (scenery[randomNumber]) return move();
     moveIndex = randomNumber;
   };
 
-  const verifyWinner = (line, player) => {
-    if (
-      `${scenery[line[0]]}${scenery[line[1]]}${scenery[line[2]]}` ===
-      player.repeat(2)
-    ) {
-      line.forEach((num) => {
-        if (!scenery[num]) moveIndex = num;
-      });
-    }
+  const verifyWinner = (player) => {
+    winnerLines.forEach((line) => {
+      if (
+        `${scenery[line[0]]}${scenery[line[1]]}${scenery[line[2]]}` ===
+        player.repeat(2)
+      ) {
+        line.forEach((num) => {
+          if (!scenery[num]) moveIndex = num;
+        });
+      }
+    });
   };
 
-  let moveIndex = null;
-  const winnerLines = getWinnerLines(scenery),
-    myOpponentMove = myMove == "X" ? "O" : "X";
-
   move();
-
-  winnerLines.forEach((line) => verifyWinner(line, myOpponentMove));
-  winnerLines.forEach((line) => verifyWinner(line, myMove));
+  verifyWinner(myOpponentMove);
+  verifyWinner(myMove);
 
   return moveIndex;
 };
