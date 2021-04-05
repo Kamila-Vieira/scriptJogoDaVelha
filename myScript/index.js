@@ -48,14 +48,12 @@ const kamilaScript = (scenery, myMove) => {
   const winnerLines = getWinnerLines(scenery),
     myOpponentMove = myMove == "X" ? "O" : "X";
 
-  winnerLines.forEach((line) => {
-    verifyWinner(line, myOpponentMove);
-    verifyWinner(line, myMove);
-  });
+  move();
 
-  if (!moveIndex) {
-    move();
-  }
+  winnerLines.forEach((line) => {
+    verifyWinner(line, myMove);
+    verifyWinner(line, myOpponentMove);
+  });
 
   return moveIndex;
 };
